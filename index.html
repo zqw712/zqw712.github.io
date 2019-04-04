@@ -152,7 +152,75 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-新文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/05/CTF/">CTF</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/05/CTF/" class="archive-article-date">
+  	<time datetime="2019-04-04T17:48:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CTF学习总结"><a href="#CTF学习总结" class="headerlink" title="CTF学习总结"></a><strong>CTF学习总结</strong></h1><p>最近开始接触CTF的题，自己是个小白，啥也不会，完全照着 答案一步一步的来，在这记个笔记吧。</p>
+<h2 id="CGCTF"><a href="#CGCTF" class="headerlink" title="CGCTF"></a>CGCTF</h2><p>这些事在南邮平台上做的题，由易到难。</p>
+<p><strong><em>1</em></strong>：md5 collision   题目链接：<a href="http://chinalover.sinaapp.com/web19/" title="题目链接" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web19/</a><br>源码（PHP)<br>$md51 = md5(‘QNKCDZO’);<br>$a = @$_GET[‘a’];<br>$md52 = @md5($a);<br>if(isset($a)){<br>if ($a != ‘QNKCDZO’ &amp;&amp; $md51 == $md52) {<br>    echo “nctf{<strong><strong><strong><strong>*</strong></strong></strong></strong>}”;<br>} else {<br>    echo “false!!!”;<br>}}<br>else{echo “please input a”;}</p>
+<p>打开题目链接，提示我们“please input a”，根据源代码猜测，“QNKCDZO”要经过md5加密，拿到在线加密网站加一下密，得到：“0e830400451993494058024219903391”，看了一下网上大佬的解释：<strong>“同时PHP在处理哈希字符串时，会利用”!=”或”==”来对哈希值进行比较，它把每一个以”0E”开头的哈希值都解释为0”</strong>，所以我们需要再找到一个加密后是0e开头的明文，查询得： s878926199a ，将“?a=s878926199a”输入到网址后，得到flag</p>
+<p><strong><em>2</em></strong>：题目地址：<a href="http://teamxlc.sinaapp.com/web1/02298884f0724c04293b4d8c0178615e/index.php" target="_blank" rel="noopener">http://teamxlc.sinaapp.com/web1/02298884f0724c04293b4d8c0178615e/index.php</a><br>根据网页提示，输入 zhimakaimen 是错误的（当然没那么简单)，打开源代码发现：<code>&lt;input type=&quot;password&quot; value=&quot;&quot; name=&quot;text1&quot; maxlength=&quot;10&quot;&gt;</code>，仔细观察有maxlength=”10”,最大长度只有10？，改一下嘛，改成11，再次输入得到flag。</p>
+<p>未完待续…</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/05/CTF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -172,7 +240,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/30/新文档/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/30/第一篇博客/">展开全文 >></a>
         </p>
       
 
